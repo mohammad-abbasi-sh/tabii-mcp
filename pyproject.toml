@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tabii-mcp"
+version = "0.1.0"
+description = "Unofficial read-only MCP server for tabii.com (TRT streaming): catalog search, show details, live channels, people"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "mcp<2",
+    "curl-cffi>=0.7,<1.0",
+]
+authors = [{ name = "Mohammad Abbasi" }]
+
+[project.scripts]
+tabii-mcp = "tabii_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tabii_mcp"]
